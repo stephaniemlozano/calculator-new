@@ -1,13 +1,23 @@
 const display = document.querySelector('.display').innerHTML
-let firstNumber = document.querySelector('.first-num').innerHTML
-let secondNumber = document.querySelector('.second-num').innerHTML
+const firstNumber = document.querySelector('.first-num').innerHTML
+const secondNumber = document.querySelector('.second-num').innerHTML
+const divOperator = document.querySelector('.operator').innerHTML
 
+const clicked = true
 
 const showDisplay = (number) => {
-  if (document.querySelector('.display').innerHTML >= '0') {
-    document.querySelector('.display').innerHTML = number
+  if (!clicked) {
+    if (document.querySelector('.first-num').innerHTML >= '0') {
+      document.querySelector('.first-num').innerHTML = number
+    } else {
+      document.querySelector('.first-num').innerHTML += number
+    }
   } else {
-    document.querySelector('.display').innerHTML += number
+    if (document.querySelector('.second-num').innerHTML >= '0') {
+      document.querySelector('.second-num').innerHTML = number
+    } else {
+      document.querySelector('.second-num').innerHTML += number
+    }
   }
 }
 
@@ -16,31 +26,26 @@ const operator = (operation) => {
     document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(display)
 
   if (operation === '-') {
     document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(display)
-  
+
   if (operation === '*') {
     document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(display)
 
   if (operation === '/') {
     document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(display)
 
   if (operation === '=') {
     document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(display)
 }
 
 const equalButton = (number1, operatorBtn, number2) => {
@@ -60,9 +65,7 @@ const equalButton = (number1, operatorBtn, number2) => {
     total = number1 / number2
     document.querySelector('.display').innerHTML = result
   }
-  
 }
-
 
 const acButton = (ac) => {
   if (ac === 'AC') {
@@ -70,16 +73,11 @@ const acButton = (ac) => {
   }
 }
 
-
-
-
 // const deleteButton = (del) => {
 //     if (del === 'DEL') {
 //         document.querySelector('.display').innerHTML.substring(0, document.querySelector('.display').innerHTML-1)
 //     }
 // }
-
-
 
 /*Delete button, not working
 need to add in calculation function and apply it
