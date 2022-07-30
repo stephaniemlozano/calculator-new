@@ -15,7 +15,7 @@
     <div class="calculator">
         <div class="display">
             <div class="first-num"></div>
-            
+            <div class="second-num"></div>
         </div>
         <button class="btn-ac" onclick="acButton('AC')">AC</button>
         <button onclick="deleteButton('DEL')">DEL</button>
@@ -33,7 +33,7 @@
         <button onclick="operator('-')">-</button>
         <button onclick="showDisplay('0')">0</button>
         <button onclick="showDisplay('.')">.</button>
-        <button class="btn-equal" onclick="operator('=')">=</button>
+        <button class="btn-equal" onclick="equalButton(number1, operatorBtn, number2)">=</button>
     </div>
     <script src="scipt.js"></script>
 </body>

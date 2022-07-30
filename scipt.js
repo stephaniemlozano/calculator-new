@@ -1,7 +1,7 @@
-const display = () => document.querySelector('.display').innerHTML
+const display = document.querySelector('.display').innerHTML
 let firstNumber = document.querySelector('.first-num').innerHTML
+let secondNumber = document.querySelector('.second-num').innerHTML
 
-let numberArray = []
 
 const showDisplay = (number) => {
   if (document.querySelector('.display').innerHTML >= '0') {
@@ -13,49 +13,73 @@ const showDisplay = (number) => {
 
 const operator = (operation) => {
   if (operation === '+') {
-    numberArray.push(document.querySelector('.display').innerHTMLtNumber, operation)
+    document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(numberArray)
+  console.log(display)
 
   if (operation === '-') {
-    numberArray.push(document.querySelector('.display').innerHTMLtNumber, operation)
+    document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(numberArray) 
+  console.log(display)
   
   if (operation === '*') {
-    numberArray.push(document.querySelector('.display').innerHTMLtNumber, operation)
+    document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(numberArray)
+  console.log(display)
 
   if (operation === '/') {
-    numberArray.push(document.querySelector('.display').innerHTMLtNumber, operation)
+    document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(numberArray)
+  console.log(display)
 
   if (operation === '=') {
-    numberArray.push(document.querySelector('.display').innerHTMLtNumber, operation)
+    document.querySelector('.display').innerHTML, operation
   }
   document.querySelector('.display').innerHTML = operation
-  console.log(numberArray)
+  console.log(display)
 }
+
+const equalButton = (number1, operatorBtn, number2) => {
+  let total = ''
+  let result = `${number1} ${operatorBtn} ${number2} = ${total}`
+
+  if (operatorBtn === '+') {
+    total = number1 + number2
+    document.querySelector('.display').innerHTML = result
+  } else if (operatorBtn === '-') {
+    total = number1 - number2
+    document.querySelector('.display').innerHTML = result
+  } else if (operatorBtn === '*') {
+    total = number1 * number2
+    document.querySelector('.display').innerHTML = result
+  } else if (operatorBtn === '/') {
+    total = number1 / number2
+    document.querySelector('.display').innerHTML = result
+  }
+  
+}
+
 
 const acButton = (ac) => {
   if (ac === 'AC') {
-    numberArray.length = 0
     document.querySelector('.display').innerHTML = 0
   }
 }
 
 
-const deleteButton = (del) => {
-    if (del === 'DEL') {
-        document.querySelector('.display').innerHTML.substring(0, document.querySelector('.display').innerHTML-1)
-    }
-}
+
+
+// const deleteButton = (del) => {
+//     if (del === 'DEL') {
+//         document.querySelector('.display').innerHTML.substring(0, document.querySelector('.display').innerHTML-1)
+//     }
+// }
+
+
 
 /*Delete button, not working
 need to add in calculation function and apply it
