@@ -1,19 +1,14 @@
-const display = document.querySelector('.display').innerHTML
-const firstNumber = document.querySelector('.first-num').innerHTML
-const secondNumber = document.querySelector('.second-num').innerHTML
-const divOperator = document.querySelector('.operator').innerHTML
-
-const clicked = true
+let clicked = false
 
 const showDisplay = (number) => {
   if (!clicked) {
-    if (document.querySelector('.first-num').innerHTML >= '0') {
+    if (document.querySelector('.first-num').innerHTML >= "0") {
       document.querySelector('.first-num').innerHTML = number
     } else {
       document.querySelector('.first-num').innerHTML += number
     }
   } else {
-    if (document.querySelector('.second-num').innerHTML >= '0') {
+    if (document.querySelector('.second-num').innerHTML >= "0") {
       document.querySelector('.second-num').innerHTML = number
     } else {
       document.querySelector('.second-num').innerHTML += number
@@ -21,51 +16,33 @@ const showDisplay = (number) => {
   }
 }
 
+
 const operator = (operation) => {
-  if (operation === '+') {
-    document.querySelector('.display').innerHTML, operation
-  }
-  document.querySelector('.display').innerHTML = operation
-
-  if (operation === '-') {
-    document.querySelector('.display').innerHTML, operation
-  }
-  document.querySelector('.display').innerHTML = operation
-
-  if (operation === '*') {
-    document.querySelector('.display').innerHTML, operation
-  }
-  document.querySelector('.display').innerHTML = operation
-
-  if (operation === '/') {
-    document.querySelector('.display').innerHTML, operation
-  }
-  document.querySelector('.display').innerHTML = operation
-
-  if (operation === '=') {
-    document.querySelector('.display').innerHTML, operation
-  }
-  document.querySelector('.display').innerHTML = operation
+  clicked = true
+  document.querySelector(".operator").innerHTML = operation
+}
+const equalButton = () => {
+  let firstNumber = document.querySelector('.first-num').innerHTML
+  let secondNumber = document.querySelector('.second-num').innerHTML
+  let operator = document.querySelector(".operator").innerHTML
+  let total = calculate(firstNumber, secondNumber, operator)
+  let result = `${firstNumber} ${operator} ${secondNumber} = ${total}`
+  document.querySelector(".result").innerHTML = result
 }
 
-const equalButton = (number1, operatorBtn, number2) => {
-  let total = ''
-  let result = `${number1} ${operatorBtn} ${number2} = ${total}`
-
-  if (operatorBtn === '+') {
-    total = number1 + number2
-    document.querySelector('.display').innerHTML = result
-  } else if (operatorBtn === '-') {
-    total = number1 - number2
-    document.querySelector('.display').innerHTML = result
-  } else if (operatorBtn === '*') {
-    total = number1 * number2
-    document.querySelector('.display').innerHTML = result
-  } else if (operatorBtn === '/') {
-    total = number1 / number2
-    document.querySelector('.display').innerHTML = result
+const calculate = (firstNum, secondNum, operator) => {
+  switch (operator) {
+    case "+":
+      return parseInt(firstNum) + parseInt(secondNum);
+    case "-":
+      return firstNum - secondNum
+    case "*":
+      return firstNum * secondNum
+    case "/":
+      return firstNum / secondNum
   }
 }
+
 
 const acButton = (ac) => {
   if (ac === 'AC') {
@@ -73,13 +50,3 @@ const acButton = (ac) => {
   }
 }
 
-// const deleteButton = (del) => {
-//     if (del === 'DEL') {
-//         document.querySelector('.display').innerHTML.substring(0, document.querySelector('.display').innerHTML-1)
-//     }
-// }
-
-/*Delete button, not working
-need to add in calculation function and apply it
-need to stop from allowing multiple decimals
-loop for infinite calculations? */
