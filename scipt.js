@@ -3,13 +3,13 @@ let clicked = false
 const showDisplay = (number) => {
   if (!clicked) {
     if (document.querySelector('.first-num').innerHTML >= "0") {
-      document.querySelector('.first-num').innerHTML = number
+      document.querySelector('.first-num').innerHTML += number
     } else {
       document.querySelector('.first-num').innerHTML += number
     }
   } else {
     if (document.querySelector('.second-num').innerHTML >= "0") {
-      document.querySelector('.second-num').innerHTML = number
+      document.querySelector('.second-num').innerHTML += number
     } else {
       document.querySelector('.second-num').innerHTML += number
     }
@@ -33,7 +33,7 @@ const equalButton = () => {
 const calculate = (firstNum, secondNum, operator) => {
   switch (operator) {
     case "+":
-      return parseInt(firstNum) + parseInt(secondNum);
+      return parseInt(firstNum) + parseInt(secondNum)
     case "-":
       return firstNum - secondNum
     case "*":
@@ -50,3 +50,9 @@ const acButton = (ac) => {
   }
 }
 
+
+
+/* Known bugs:
+   - multiple decimals can be selected
+   - first number does not reset
+*/
